@@ -2,15 +2,20 @@
 
 <table>
   <tr>
+    <th>ID</th>
     <th>Title</th>
     <th>Text</th>
+    <th colspan="2"></th>
   </tr>
   
   <% @articles.each do |display| %>
     <tr>
+      <td><%= display.id %></td>
       <td><%= display.title %></td>
       <td><%= display.text %></td>
       <td><%= link_to 'Show', article_path(display) %></td>
+      <td><%= link_to 'Edit', edit_article_path(display) %></td>
+      <td><%= link_to "Delete", article_path(display), method: :delete, data: {confirm: 'Are you sure?'} %></td>
     </tr>
   <% end %>
 </table>
